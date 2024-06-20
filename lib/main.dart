@@ -1,27 +1,71 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home:Scaffold(
-      backgroundColor: Colors.lightBlue[200],
-      appBar: AppBar(
-        title: Center(
-          child: Text('iWater App'),
-        ),
-        backgroundColor: Colors.lightBlueAccent,
+void main() => runApp(MaterialApp(
+  home: Scaffold(
+    backgroundColor: Colors.pink[200],
+    appBar: AppBar(
+      title: Text('Hello Kiffy',
+      style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),),
+      backgroundColor: Colors.pink[300],
+      centerTitle: true,
+    ),
+    body: Padding(
+      padding: EdgeInsets.all(20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            'NAME:',
+            style: TextStyle(
+              fontSize: 16.0,
+              color: Colors.black,
+              letterSpacing: 2.0,
+            ),
+          ),
+          Text(
+            'John Rafael B De Los Reyes',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              fontSize: 30.0,
+            ),
+          ),
+          SizedBox(height: 30.0,),
+          Text(
+            'YEAR:',
+            style: TextStyle(
+              fontSize: 16.0,
+              color: Colors.black,
+              letterSpacing: 2.0,
+            ),
+          ),
+          Text(
+            '4th Year',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              fontSize: 30.0,
+            ),
+          ),
+          SizedBox(height: 30.0,),
+          Text(
+            'EMAIL:',
+            style: TextStyle(
+              fontSize: 16.0,
+              color: Colors.black,
+              letterSpacing: 2.0,
+            ),
+          ),
+          Text(
+            '21-11735@g.batstate-u.edu.ph',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+              fontSize: 27.0,
+            ),
+          ),
+        ],
       ),
-      body: Center(
-        child: Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfGtVygU7ada-OVDswIKTVxppKinp0N_tpTQ&s'),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Colors.lightBlueAccent,
-        child: Icon(
-          Icons.add,
-          color: Colors.black,
-        ),
-        ),
-      ),
-    ),);
-}
+    ),
+  ),
+));
