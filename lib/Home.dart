@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int year = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -25,13 +32,14 @@ class Home extends StatelessWidget {
               children: <Widget>[
                 Center(
                   child: CircleAvatar(
-                    child: Image.asset('assets/hello-kitty.jpg'),
-                    radius: 60.0,
+                    backgroundImage: AssetImage('assets/download.png'),
+                    backgroundColor: Colors.pinkAccent,
+                    radius: 70.0,
                   ),
                 ),
                 Divider(height: 55.0,
-                color: Colors.black,
-                  thickness: 5.0,
+                color: Colors.pink[400],
+                  thickness: 4.0,
                 ),
                 Row(
                   children: [
@@ -75,7 +83,7 @@ class Home extends StatelessWidget {
                   ],
                 ),
                 Text(
-                  '4th Year',
+                  '$year Year',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
@@ -113,10 +121,19 @@ class Home extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 ElevatedButton(
-                    onPressed: (){},
-                    child: Text('Add Year'),
+                    onPressed: (){
+                      setState(() {
+                        year +=1;
+                      });
+                    },
+                    child: Text('Add Year',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    ),
                   style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(Colors.pink),
+                    backgroundColor: WidgetStateProperty.all(Colors.pinkAccent),
                   ),
                 ),
               ],
