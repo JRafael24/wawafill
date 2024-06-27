@@ -20,42 +20,6 @@ class _MenuState extends State<Menu> {
     Product(productName: "Rum", price: 1499.99),
   ];
 
-  Widget cardTemplate(product){
-    return SizedBox(
-      height: 100,
-      width: 500,
-
-      child: Card(
-        color: Colors.pink[300],
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(product.productName,
-                style: const TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 30.0,
-                letterSpacing: 2.0,
-                ),
-              ),
-              Text('${product.price}',
-                style: const TextStyle(
-                  color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 16.0),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -10,7 +10,7 @@ class Menucard extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 100,
-      width: 500,
+      width: 450,
 
       child: Card(
         color: Colors.pink[300],
