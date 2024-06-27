@@ -18,7 +18,12 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text(
           'Hello Kiffy',
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),),
+          style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+          letterSpacing: 2.0,
+          ),
+        ),
         backgroundColor: Colors.pink[300],
         centerTitle: true,
       ),

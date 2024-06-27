@@ -19,7 +19,7 @@ class _DashboardState extends State<Dashboard> {
                 onPressed: (){
                   Navigator.pushNamed(context, '/menu');
                 },
-                  child: Text('Pindutin mo ang Menu',
+                  child: Text('Go to menu',
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
@@ -30,7 +30,8 @@ class _DashboardState extends State<Dashboard> {
                 onPressed: (){
                   Navigator.pushNamed(context, '/profile');
                 },
-                child: Text('Profile to Ulaga',
+                child: Text('Go to profile'
+                    '',
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,

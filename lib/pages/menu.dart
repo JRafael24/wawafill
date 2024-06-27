@@ -1,4 +1,8 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:untitled/services/product.dart';
+import 'package:untitled/services/menuCard.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});
@@ -8,10 +12,73 @@ class Menu extends StatefulWidget {
 }
 
 class _MenuState extends State<Menu> {
+  List products = <Product>[
+    Product(productName: "Brandy", price: 999.99),
+    Product(productName: "Wine", price: 1499.99),
+    Product(productName: "Jack Daniel", price: 2999.99),
+    Product(productName: "Vodka", price: 2599.99),
+    Product(productName: "Rum", price: 1499.99),
+  ];
+
+  Widget cardTemplate(product){
+    return SizedBox(
+      height: 100,
+      width: 500,
+
+      child: Card(
+        color: Colors.pink[300],
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text(product.productName,
+                style: const TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30.0,
+                letterSpacing: 2.0,
+                ),
+              ),
+              Text('${product.price}',
+                style: const TextStyle(
+                  color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 16.0),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('This is menu'),
+      backgroundColor: Colors.pink[200],
+      appBar: AppBar(
+        backgroundColor: Colors.pink[300],
+        foregroundColor: Colors.black,
+
+        title: Text(
+          'Menu',
+          style: TextStyle(
+            fontWeight: FontWeight.w700,
+            letterSpacing: 2.0,
+          ),
+        ),
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(4.0),
+        child: Column(
+          children: products.map((product) => Menucard(product: product)).toList(),
+        ),
+      )
     );
   }
 }
