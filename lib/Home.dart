@@ -17,7 +17,7 @@ class _HomeState extends State<Home> {
       backgroundColor: Colors.pink[200],
       appBar: AppBar(
         title: Text(
-          'Hello Kiffy',
+          'User Profile',
           style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
