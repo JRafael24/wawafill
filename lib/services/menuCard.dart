@@ -13,7 +13,7 @@ class Menucard extends StatelessWidget {
       width: 450,
 
       child: Card(
-        color: Colors.pink[300],
+        color: Colors.pink[100],
         child: Padding(
           padding: const EdgeInsets.all(12.0),
 

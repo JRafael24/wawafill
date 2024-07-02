@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 
-class Signup extends StatefulWidget {
-  const Signup({super.key});
+class Login extends StatefulWidget {
+  const Login({super.key});
 
   @override
-  State<Signup> createState() => _SignupState();
+  State<Login> createState() => _LoginState();
 }
 
-class _SignupState extends State<Signup> {
+class _LoginState extends State<Login> {
   final formKey = GlobalKey<FormState>();
-  String name = '';
   String email = '';
   String password = '';
-
 
   @override
   Widget build(BuildContext context) {
@@ -24,110 +22,105 @@ class _SignupState extends State<Signup> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(
-                'Lets Get Started!',
-                style: TextStyle(
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 2.0,
-                  fontSize: 26.0,
-                  color: Colors.black,
+              Center(
+                child: Text(
+                  'Welcome Back!',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 2.0,
+                    fontSize: 26.0,
+                    color: Colors.black,
 
+                  ),
                 ),
               ),
-              SizedBox(height: 20.0,),
+              SizedBox(height: 20.0),
               Form(
                 key: formKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                     TextFormField(
-                      maxLength: 60,
-                      decoration: InputDecoration(
-                        label: Text('Name'),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(25.0)
-                        ),
-                      ),
-                      validator: (value){
-                        if(value == null || value.isEmpty){
-                          return 'Please enter your name';
-                        }
-                        if(value.length < 2){
-                          return 'Name Should be atleast 3 letters long';
-                        }
-                        return null;
-                      },
-                      onSaved: (value){
-                        name = value!;
-                      },
-                    ),
-                    SizedBox(height: 15.0,),
-                    TextFormField(
                       keyboardType: TextInputType.emailAddress,
                       maxLength: 60,
                       decoration: InputDecoration(
-                        label: Text('Email'),
+                        labelText: 'Email',
                         border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(25.0)
+                          borderRadius: BorderRadius.circular(25.0),
                         ),
                       ),
-                      validator: (value){
-                        if(value == null || value.isEmpty){
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
                           return 'Please enter your email address';
                         }
                         return null;
                       },
-                      onSaved: (value){
+                      onSaved: (value) {
                         email = value!;
                       },
                     ),
-                    SizedBox(height: 15.0,),
+                    SizedBox(height: 15.0),
                     TextFormField(
                       obscureText: true,
                       maxLength: 20,
                       decoration: InputDecoration(
-                        label: Text('Password'),
+                        labelText: 'Password',
                         border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(25.0)
+                          borderRadius: BorderRadius.circular(25.0),
                         ),
                       ),
-                      validator: (value){
-                        if(value == null || value.isEmpty){
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
                           return 'Please enter your password';
                         }
-                        if(value.length < 8){
+                        if (value.length < 8) {
                           return 'Password must be 8 or more characters';
                         }
-                        if(value.length >20){
+                        if (value.length > 20) {
                           return 'Password must be 20 characters long only';
                         }
                         return null;
                       },
-                      onSaved: (value){
+                      onSaved: (value) {
                         password = value!;
                       },
                     ),
-                    SizedBox(height: 14.0,),
+                    SizedBox(height: 14.0),
                     ElevatedButton(
-                        onPressed: (){
-                          if(formKey.currentState!.validate()){
-                           formKey.currentState!.save();
-                           print (name);
-                           print (email);
-                           print (password);
-                          }
-                        },
-                        child: Text('Create Account',
+                      onPressed: () {
+                        if (formKey.currentState!.validate()) {
+                          formKey.currentState!.save();
+                          // Perform login logic here, e.g., send credentials to server
+                          print('Email: $email');
+                          print('Password: $password');
+                        }
+                      },
+                      child: Text(
+                        'Log in',
                         style: TextStyle(
                           letterSpacing: 1.0,
-
-                        ),),
+                        ),
+                      ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.pink[400],
-                        foregroundColor: Colors.black,
+                        backgroundColor: Colors.amber,
+                        foregroundColor: Colors.white,
                       ),
                     ),
-                    Divider(height: 10.0,),
+                   Row(
+                     children: <Widget>[
+                       Expanded(child: Divider(
+                         color: Colors.black,
+                         height: 50,
+                       ),),
+                       SizedBox(width: 5.0,),
+                       Text("or", style: TextStyle(color: Colors.blue),),
+                       SizedBox(width: 5.0,),
+                       Expanded(child: Divider(
+                         color: Colors.black,
+                         height: 50,
+                       ))
+                     ],
+                   ),
                     SizedBox(height: 10.0),
                     ElevatedButton(
                       onPressed: () {
@@ -181,26 +174,26 @@ class _SignupState extends State<Signup> {
                     ),
                     SizedBox(height: 50.0,),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          'Already have account?',
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        ),
-                        SizedBox(width: 5.0,),
-                        InkWell(
-                          child: Text(
-                            'Login Here',
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'Dont have an account?',
                             style: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.black,
                             ),
                           ),
-                          onTap: ()=> Navigator.popAndPushNamed(context, '/login'),
-                        ),
-                      ],
-                    ),
+                          SizedBox(width: 5.0,),
+                          InkWell(
+                            child: Text(
+                              'Signup Here',
+                              style: TextStyle(
+                                color: Colors.blue,
+                              ),
+                            ),
+                            onTap: ()=> Navigator.popAndPushNamed(context, '/signup'),
+                          ),
+                        ],
+                      ),
                   ],
                 ),
               ),
