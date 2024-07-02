@@ -220,6 +220,7 @@ class _SignupState extends State<Signup> {
                             'Login Here',
                             style: TextStyle(
                               color: Colors.blue,
+                              decoration: TextDecoration.underline,
                             ),
                           ),
                           onTap: ()=> Navigator.popAndPushNamed(context, '/login'),

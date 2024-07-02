@@ -45,6 +45,7 @@ class _LoginState extends State<Login> {
                       maxLength: 60,
                       decoration: InputDecoration(
                         labelText: 'Email',
+                        labelStyle: TextStyle(color: Colors.black),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(25.0),
                         ),
@@ -66,6 +67,7 @@ class _LoginState extends State<Login> {
                       maxLength: 20,
                       decoration: InputDecoration(
                         labelText: 'Password',
+                        labelStyle: TextStyle(color: Colors.black),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(25.0),
                         ),
@@ -178,8 +180,6 @@ class _LoginState extends State<Login> {
                       ),
                     ),
 
-
-
                     SizedBox(height: 50.0,),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -196,6 +196,7 @@ class _LoginState extends State<Login> {
                               'Signup Here',
                               style: TextStyle(
                                 color: Colors.blue,
+                                decoration: TextDecoration.underline,
                               ),
                             ),
                             onTap: ()=> Navigator.popAndPushNamed(context, '/signup'),
