@@ -30,11 +30,12 @@ class _LoginState extends State<Login> {
                     letterSpacing: 2.0,
                     fontSize: 26.0,
                     color: Colors.black,
+                    height: 4.0,
 
                   ),
                 ),
               ),
-              SizedBox(height: 20.0),
+              SizedBox(height: 5.0),
               Form(
                 key: formKey,
                 child: Column(
@@ -61,7 +62,7 @@ class _LoginState extends State<Login> {
                         email = value!;
                       },
                     ),
-                    SizedBox(height: 15.0),
+                    SizedBox(height: 10.0),
                     TextFormField(
                       obscureText: true,
                       maxLength: 20,
