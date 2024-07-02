@@ -48,6 +48,7 @@ class _LoginState extends State<Login> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(25.0),
                         ),
+                        prefixIcon: Icon(Icons.email),
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -68,6 +69,7 @@ class _LoginState extends State<Login> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(25.0),
                         ),
+                        prefixIcon: Icon(Icons.lock),
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -122,12 +124,13 @@ class _LoginState extends State<Login> {
                      ],
                    ),
                     SizedBox(height: 10.0),
-                    ElevatedButton(
+                    ElevatedButton.icon(
                       onPressed: () {
                         // Placeholder for Google Sign-In
                         print('Sign in with Google button pressed');
                       },
-                      child: Text(
+                      icon: Icon(Icons.login), // Icon for Google Sign-In
+                      label: Text(
                         'Sign in with Google',
                         style: TextStyle(
                           letterSpacing: 1.0,
@@ -139,12 +142,13 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                     SizedBox(height: 10.0),
-                    ElevatedButton(
+                    ElevatedButton.icon(
                       onPressed: () {
                         // Placeholder for Facebook Sign-In
                         print('Sign in with Facebook button pressed');
                       },
-                      child: Text(
+                      icon: Icon(Icons.facebook), // Icon for Facebook Sign-In
+                      label: Text(
                         'Sign in with Facebook',
                         style: TextStyle(
                           letterSpacing: 1.0,
@@ -156,12 +160,13 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                     SizedBox(height: 10.0),
-                    ElevatedButton(
+                    ElevatedButton.icon(
                       onPressed: () {
                         // Placeholder for Apple Sign-In
                         print('Sign in with Apple ID button pressed');
                       },
-                      child: Text(
+                      icon: Icon(Icons.apple), // Icon for Apple Sign-In
+                      label: Text(
                         'Sign in with Apple ID',
                         style: TextStyle(
                           letterSpacing: 1.0,
@@ -172,6 +177,9 @@ class _LoginState extends State<Login> {
                         foregroundColor: Colors.white,
                       ),
                     ),
+
+
+
                     SizedBox(height: 50.0,),
                     Row(
                         mainAxisAlignment: MainAxisAlignment.center,
