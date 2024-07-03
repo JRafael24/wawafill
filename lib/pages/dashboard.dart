@@ -12,77 +12,100 @@ class _DashboardState extends State<Dashboard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.pink[300], // Set background color of the AppBar to pink
+        backgroundColor: Colors.lightBlue[900],
         title: Text(
-          'Dashboard',
+          'DASHBOARD',
           style: TextStyle(
             letterSpacing: 2.0,
             fontWeight: FontWeight.bold,
+            color: Colors.white70,
           ),
         ),
         centerTitle: true,
       ),
-      backgroundColor: Colors.pink[200], // Set background color of the body to a lighter shade of pink
+      backgroundColor: Colors.teal[400],
       body: Container(
         child: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              // Image widget placed above the ElevatedButton
+              Image.asset(
+                'assets/Steam_icon_logo.svg.png', // Replace with your actual image path
+                height: 100, // Adjust height as needed
+              ),
+              SizedBox(height: 20.0), // Adding space between the image and button
               Center(
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/menu');
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.lightBlue[900], // Set background color of the ElevatedButton
+                  ),
                   child: Text(
-                    'Go to menu',
+                    'MENU',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
+                      letterSpacing: 2.0,
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 10.0), // Adding some space between buttons
+              SizedBox(height: 10.0),
               Center(
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/profile');
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.lightBlue[900], // Set background color of the ElevatedButton
+                  ),
                   child: Text(
-                    'Go to profile',
+                    'PROFILE',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
+                      letterSpacing: 2.0,
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 10.0), // Adding some space between buttons
+              SizedBox(height: 10.0),
               Center(
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/signup');
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.lightBlue[900], // Set background color of the ElevatedButton
+                  ),
                   child: Text(
-                    'Go to signup',
+                    'SIGNUP',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
+                      letterSpacing: 2.0,
                     ),
                   ),
                 ),
               ),
-              SizedBox(height: 10.0), // Adding some space between buttons
+              SizedBox(height: 10.0),
               Center(
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.pushNamed(context, '/login');
                   },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.lightBlue[900], // Set background color of the ElevatedButton
+                  ),
                   child: Text(
-                    'Login',
+                    'LOGIN',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
+                      letterSpacing: 2.0,
                     ),
                   ),
                 ),

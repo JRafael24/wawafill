@@ -13,7 +13,7 @@ class Menucard extends StatelessWidget {
       width: 450,
 
       child: Card(
-        color: Colors.pink[100],
+        color: Colors.lightBlue[700],
         child: Padding(
           padding: const EdgeInsets.all(12.0),
 
@@ -29,7 +29,7 @@ class Menucard extends StatelessWidget {
               ),
               Text('${product.price}',
                 style: const TextStyle(
-                    color: Colors.white,
+                    color: Colors.black,
                     fontWeight: FontWeight.bold,
                     fontSize: 16.0),
               ),

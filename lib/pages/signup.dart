@@ -17,7 +17,7 @@ class _SignupState extends State<Signup> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.teal[400],
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.fromLTRB(10.0, 30.0, 10.0, 0),
@@ -31,7 +31,7 @@ class _SignupState extends State<Signup> {
                     fontWeight: FontWeight.w700,
                     letterSpacing: 2.0,
                     fontSize: 26.0,
-                    color: Colors.black,
+                    color: Colors.amber,
                     height:3.0,
 
                   ),
@@ -113,7 +113,7 @@ class _SignupState extends State<Signup> {
                         password = value!;
                       },
                     ),
-                    SizedBox(height: 14.0,),
+                    SizedBox(height: 10.0,),
                     ElevatedButton(
                         onPressed: (){
                           if(formKey.currentState!.validate()){
@@ -141,7 +141,7 @@ class _SignupState extends State<Signup> {
                           height: 50,
                         ),),
                         SizedBox(width: 5.0,),
-                        Text("or", style: TextStyle(color: Colors.blue),),
+                        Text("or", style: TextStyle(color: Colors.amber),),
                         SizedBox(width: 5.0,),
                         Expanded(child: Divider(
                           color: Colors.black,
@@ -150,25 +150,35 @@ class _SignupState extends State<Signup> {
                       ],
                     ),
 
-                    SizedBox(height: 10.0),
-                    ElevatedButton.icon(
-                      onPressed: () {
-                        // Placeholder for Google Sign-In
-                        print('Sign in with Google button pressed');
-                      },
-                      icon: Icon(Icons.login), // Icon for Google Sign-In
-                      label: Text(
-                        'Sign in with Google',
-                        style: TextStyle(
-                          letterSpacing: 1.0,
+                    SizedBox(height: 5.0),
+                    Container(
+                      width: double.infinity, // Match the width of the parent
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Colors.red, Colors.yellow, Colors.green, Colors.blue], // Gradient colors
+                        ),
+                        borderRadius: BorderRadius.circular(10), // Optional: add border radius
+                      ),
+                      child: ElevatedButton.icon(
+                        onPressed: () {
+                          // Placeholder for Google Sign-In
+                          print('Sign in with Google button pressed');
+                        },
+                        icon: Icon(Icons.login), // Icon for Google Sign-In
+                        label: Text(
+                          'Sign in with Google',
+                          style: TextStyle(
+                            letterSpacing: 1.0,
+                          ),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.transparent, // Make button background transparent
+                          foregroundColor: Colors.white, // Text color
                         ),
                       ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.redAccent,
-                        foregroundColor: Colors.white,
-                      ),
                     ),
-                    SizedBox(height: 10.0),
+
+                    SizedBox(height: 5.0),
                     ElevatedButton.icon(
                       onPressed: () {
                         // Placeholder for Facebook Sign-In
@@ -186,7 +196,7 @@ class _SignupState extends State<Signup> {
                         foregroundColor: Colors.white,
                       ),
                     ),
-                    SizedBox(height: 10.0),
+                    SizedBox(height: 5.0),
                     ElevatedButton.icon(
                       onPressed: () {
                         // Placeholder for Apple Sign-In
@@ -202,6 +212,24 @@ class _SignupState extends State<Signup> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.black,
                         foregroundColor: Colors.white,
+                      ),
+                    ),
+                    SizedBox(height: 5.0),
+                    ElevatedButton.icon(
+                      onPressed: () {
+                        // Placeholder for Steam Sign-In
+                        print('Sign in with Steam button pressed');
+                      },
+                      icon: Icon(Icons.gamepad), // Icon for Steam (using a gamepad icon as a placeholder)
+                      label: Text(
+                        'Sign in with Steam',
+                        style: TextStyle(
+                          letterSpacing: 1.0,
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black, // Background color of the button
+                        foregroundColor: Colors.white, // Text color of the button
                       ),
                     ),
 
@@ -220,8 +248,9 @@ class _SignupState extends State<Signup> {
                           child: Text(
                             'Login Here',
                             style: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.amber,
                               decoration: TextDecoration.underline,
+                              fontSize:15.0,
                             ),
                           ),
                           onTap: ()=> Navigator.popAndPushNamed(context, '/login'),

@@ -14,17 +14,17 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.pink[200],
+      backgroundColor: Colors.teal[400],
       appBar: AppBar(
         title: Text(
           'User Profile',
           style: TextStyle(
-              color: Colors.black,
+              color: Colors.white,
               fontWeight: FontWeight.bold,
           letterSpacing: 2.0,
           ),
         ),
-        backgroundColor: Colors.pink[300],
+        backgroundColor: Colors.lightBlue[900],
         centerTitle: true,
       ),
       body: Padding(
@@ -43,8 +43,8 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 Divider(height: 55.0,
-                color: Colors.pink[400],
-                  thickness: 4.0,
+                color: Colors.white,
+                  thickness: 3.0,
                 ),
                 Row(
                   children: [
@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
                   'John Rafael B. De Los Reyes',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: Colors.white,
                     fontSize: 28.0,
                   ),
                 ),
@@ -91,7 +91,7 @@ class _HomeState extends State<Home> {
                   '$year Year',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: Colors.white,
                     fontSize: 28.0,
                   ),
                 ),
@@ -116,7 +116,7 @@ class _HomeState extends State<Home> {
                   '21-11735@g.batstate-u.edu.ph',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: Colors.white,
                     fontSize: 28.0,
                   ),
                 ),
@@ -133,12 +133,12 @@ class _HomeState extends State<Home> {
                     },
                     child: Text('Add Year',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                     ),
                   style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(Colors.pinkAccent),
+                    backgroundColor: WidgetStateProperty.all(Colors.lightBlue[900]),
                   ),
                 ),
               ],
