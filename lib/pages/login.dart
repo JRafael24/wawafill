@@ -15,6 +15,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.teal[400],
       body: SafeArea(
         child: Padding(
@@ -98,6 +99,7 @@ class _LoginState extends State<Login> {
                           // Perform login logic here, e.g., send credentials to server
                           print('Email: $email');
                           print('Password: $password');
+                          Navigator.pushReplacementNamed(context, '/');
                         }
                       },
                       child: Text(

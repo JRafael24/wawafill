@@ -6,13 +6,12 @@ import 'package:untitled/pages/menu.dart';
 import 'package:untitled/pages/signup.dart';
 
 void main() => runApp(MaterialApp(
-  initialRoute: '/menu',
+  initialRoute: '/login',
  routes: {
    '/' : (context) => Dashboard(),
    '/menu' : (context) => Menu(),
-   '/profile' : (context) => Home(),
+   '/home' : (context) => Home(),
    '/signup' : (context) => Signup(),
    '/login' : (context) => Login(),
  },
 ));
-
