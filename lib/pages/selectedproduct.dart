@@ -41,10 +41,24 @@ class _SelectedproductState extends State<Selectedproduct> {
         children: [
           Column(
             children: [
-              Text(widget.product.productName),
-              Text(widget.product.description),
+              Text(
+                widget.product.productName,
+                style: TextStyle(
+                  fontSize: 25, // Example font size
+                  fontWeight: FontWeight.bold, // Example font weight
+                  color: Colors.black, // Example text color
+                ),
+              ),
+              Text(
+                widget.product.description,
+                style: TextStyle(
+                  fontSize: 18, // Example font size
+                  color: Colors.black, // Example text color
+                ),
+              ),
             ],
           ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
