@@ -50,7 +50,7 @@ class _SelectedproductState extends State<Selectedproduct> {
             children: [
               Text('₱${totalAmount.toStringAsFixed(2)}',
                 style: TextStyle(
-                  fontSize: 20.0,
+                  fontSize: 22.0,
                 ),
               ),
               Row(
