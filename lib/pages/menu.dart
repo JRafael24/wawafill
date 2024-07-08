@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:ui';
 import 'package:flutter/material.dart';
+import 'package:untitled/pages/selectedproduct.dart';
 import 'package:untitled/services/product.dart';
 import 'package:untitled/services/menuCard.dart';
 import 'package:http/http.dart' as http;
@@ -41,10 +42,10 @@ class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teal[400],
+      backgroundColor: Colors.cyan,
       appBar: AppBar(
-        backgroundColor: Colors.lightBlue[900],
-        foregroundColor: Colors.white,
+        backgroundColor: Colors.yellow,
+        foregroundColor: Colors.black,
         title: Text(
           'Menu',
           style: TextStyle(
@@ -61,7 +62,7 @@ class _MenuState extends State<Menu> {
           builder: (context, snapshots) {
             if (snapshots.connectionState == ConnectionState.waiting) {
               return Center(
-                child: SpinKitWaveSpinner(
+                child: SpinKitDancingSquare(
                   color: Colors.black,
                   size: 60.0,
                 ),
@@ -80,7 +81,7 @@ class _MenuState extends State<Menu> {
                       width: double.infinity, // Card takes full width of the ListView
                       margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
                       child: Card(
-                        color: Colors.lightBlue[900],
+                        color: Colors.yellow,
                         child: ListTile(
                           title: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -89,7 +90,7 @@ class _MenuState extends State<Menu> {
                               Text(
                                 products[index].productName,
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.black,
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -97,13 +98,20 @@ class _MenuState extends State<Menu> {
                               Text(
                                 'Price: ${products[index].price.toString()}',
                                 style: TextStyle(
-                                  color: Colors.white,
+                                  color: Colors.black,
                                   fontSize: 14,
                                 ),
                               ),
                             ],
                           ),
                           onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Selectedproduct(product: products[index]),
+
+                              )
+                            );
                             // Add onTap functionality if needed
                           },
                         ),
@@ -113,7 +121,6 @@ class _MenuState extends State<Menu> {
                 ),
               );
             }
-
 
             return Center(
               child: Text('Unable to load data'),

@@ -16,7 +16,7 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.teal[400],
+      backgroundColor: Colors.cyan,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.fromLTRB(10.0, 30.0, 10.0, 0),
@@ -30,7 +30,7 @@ class _LoginState extends State<Login> {
                     fontWeight: FontWeight.w700,
                     letterSpacing: 2.0,
                     fontSize: 26.0,
-                    color: Colors.amber,
+                    color: Colors.yellow,
                     height: 4.0,
 
                   ),
@@ -109,8 +109,8 @@ class _LoginState extends State<Login> {
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.amber,
-                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.yellow,
+                        foregroundColor: Colors.black,
                       ),
                     ),
                    Row(
@@ -136,7 +136,7 @@ class _LoginState extends State<Login> {
                         gradient: LinearGradient(
                           colors: [Colors.red, Colors.yellow, Colors.green, Colors.blue], // Gradient colors
                         ),
-                        borderRadius: BorderRadius.circular(5), // Optional: add border radius
+                         // Optional: add border radius
                       ),
                       child: ElevatedButton.icon(
                         onPressed: () {
@@ -228,7 +228,7 @@ class _LoginState extends State<Login> {
                             child: Text(
                               'Signup Here',
                               style: TextStyle(
-                                color: Colors.amber,
+                                color: Colors.yellow,
                                 decoration: TextDecoration.underline,
                                 fontSize: 15.0,
                               ),
