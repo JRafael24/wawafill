@@ -6,11 +6,21 @@ class Selectedproduct extends StatefulWidget {
   const Selectedproduct({super.key, required this.product});
 
   @override
-  State<Selectedproduct> createState() => _SelectedproductState();
+  State<Selectedproduct> createState() => _SelectedproductState(product: product);
 }
 
 class _SelectedproductState extends State<Selectedproduct> {
+  final Product product;
+  late double totalAmount;
+  int numberOfOrders = 1;
+  _SelectedproductState({required this.product});
+
   @override
+  void initState(){
+    super.initState();
+    totalAmount = product.price;
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.cyan,
@@ -38,23 +48,39 @@ class _SelectedproductState extends State<Selectedproduct> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(widget.product.price.toString()),
+              Text('₱${totalAmount.toStringAsFixed(2)}',
+                style: TextStyle(
+                  fontSize: 20.0,
+                ),
+              ),
               Row(
                 children: [
                   IconButton(
+                    onPressed: () {
+                      setState(() {
+                        if(numberOfOrders > 1){
+                          numberOfOrders -= 1;
+                          totalAmount = product.price * numberOfOrders;
+                        }
+                      });
+                    },
                     icon: Icon(Icons.remove),
-                    onPressed: () {
-                      // Add your logic for removing text here
-                    },
                   ),
-                  SizedBox(width: 8), // Adjust the width as needed for spacing
-                  Text('1'), // Replace with your desired text ('1' in this case)
-                  SizedBox(width: 8), // Adjust the width as needed for spacing
+
+                  Text(numberOfOrders.toString(),
+                  style: TextStyle(
+                    fontSize: 20.0,
+                  ),
+                  ),
+                  // Replace with your desired text ('1' in this case)
                   IconButton(
-                    icon: Icon(Icons.add),
                     onPressed: () {
-                      // Add your logic for adding text here
+                      setState(() {
+                        numberOfOrders +=1;
+                        totalAmount = product.price * numberOfOrders;
+                      });
                     },
+                    icon: Icon(Icons.add),
                   ),
                 ],
               ),

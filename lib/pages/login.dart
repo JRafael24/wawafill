@@ -57,6 +57,9 @@ class _LoginState extends State<Login> {
                         if (value == null || value.isEmpty) {
                           return 'Please enter your email address';
                         }
+                        // final emailRagExp = RegExp(
+                        //   r'
+                        // )
                         return null;
                       },
                       onSaved: (value) {
