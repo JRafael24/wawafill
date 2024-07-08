@@ -35,29 +35,32 @@ class _SelectedproductState extends State<Selectedproduct> {
               Text(widget.product.description),
             ],
           ),
-         Row(
-           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-           children: [
-             Text(widget.product.price.toString()),
-             Row(
-               children: [
-                 IconButton(
-                   icon: Icon(Icons.remove),
-                   onPressed: () {
-                     // Add your logic for removing text here
-                   },
-                 ),
-                 Text(widget.product.price.toString()),
-                 IconButton(
-                   icon: Icon(Icons.person),
-                   onPressed: () {},
-                 ),
-               ],
-             )
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(widget.product.price.toString()),
+              Row(
+                children: [
+                  IconButton(
+                    icon: Icon(Icons.remove),
+                    onPressed: () {
+                      // Add your logic for removing text here
+                    },
+                  ),
+                  SizedBox(width: 8), // Adjust the width as needed for spacing
+                  Text('1'), // Replace with your desired text ('1' in this case)
+                  SizedBox(width: 8), // Adjust the width as needed for spacing
+                  IconButton(
+                    icon: Icon(Icons.add),
+                    onPressed: () {
+                      // Add your logic for adding text here
+                    },
+                  ),
+                ],
+              ),
+            ],
+          )
 
-
-           ],
-         )
         ],
       ),
     );
