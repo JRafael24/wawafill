@@ -49,7 +49,7 @@ class _SelectedproductState extends State<Selectedproduct> {
                  ),
                  Text(widget.product.price.toString()),
                  IconButton(
-                   icon: Icon(Icons.add),
+                   icon: Icon(Icons.person),
                    onPressed: () {},
                  ),
                ],
