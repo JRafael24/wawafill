@@ -1,4 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:untitled/services/user.dart';
 
 class Signup extends StatefulWidget {
   const Signup({super.key});
@@ -12,6 +16,21 @@ class _SignupState extends State<Signup> {
   String name = '';
   String email = '';
   String password = '';
+
+  createAccount(User user) async{
+    final response = await http.post(
+      Uri.parse('http://10.0.2.2:8080/api/v1/auth/register/user'),
+      headers: <String, String>{
+        'Content-Type' : 'application/json; charset=UTF-8',
+      },
+      body: jsonEncode(<String, dynamic>{
+        'username' : user.username,
+        'email' : user.email,
+        'password' : user.password,
+      }),
+    );
+    print(response.body);
+  }
 
 
   @override
@@ -80,6 +99,11 @@ class _SignupState extends State<Signup> {
                         if(value == null || value.isEmpty){
                           return 'Please enter your email address';
                         }
+                        final emailRegExp = RegExp(
+                            r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+                        if (!emailRegExp.hasMatch(value)) {
+                          return 'Please enter a valid email address';
+                        }
                         return null;
                       },
                       onSaved: (value){
@@ -118,9 +142,9 @@ class _SignupState extends State<Signup> {
                         onPressed: (){
                           if(formKey.currentState!.validate()){
                            formKey.currentState!.save();
-                           print (name);
-                           print (email);
-                           print (password);
+                           User user = User(username: name, email: email, password: password);
+                           createAccount(user);
+                           Navigator.pushReplacementNamed(context, '/login');
                           }
                         },
                         child: Text('Create Account',
@@ -212,24 +236,6 @@ class _SignupState extends State<Signup> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.black,
                         foregroundColor: Colors.white,
-                      ),
-                    ),
-                    SizedBox(height: 5.0),
-                    ElevatedButton.icon(
-                      onPressed: () {
-                        // Placeholder for Steam Sign-In
-                        print('Sign in with Steam button pressed');
-                      },
-                      icon: Icon(Icons.gamepad), // Icon for Steam (using a gamepad icon as a placeholder)
-                      label: Text(
-                        'Sign in with Steam',
-                        style: TextStyle(
-                          letterSpacing: 1.0,
-                        ),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black, // Background color of the button
-                        foregroundColor: Colors.white, // Text color of the button
                       ),
                     ),
 
