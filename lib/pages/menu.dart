@@ -19,7 +19,7 @@ class _MenuState extends State<Menu> {
 
   // 10.0.2.2:8080
   Future<List<dynamic>> fetchData() async {
-    final response = await http.get(Uri.parse('http://10.0.2.2:8080/products')
+    final response = await http.get(Uri.parse('http://10.0.2.2:8080/api/v1/product/all')
         //Product newProduct = Products.fromJson(date);
         //   return newProduct;
         //if you want to call 1 product
@@ -42,15 +42,14 @@ class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.cyan,
+      backgroundColor: Colors.brown[600],
       appBar: AppBar(
-        backgroundColor: Colors.yellow,
-        foregroundColor: Colors.black,
-        title: Text(
-          'Menu',
-          style: TextStyle(
-            fontWeight: FontWeight.w700,
-            letterSpacing: 2.0,
+        backgroundColor: Colors.black,
+        foregroundColor: Colors.white,
+        title: Center(
+          child: Image.asset('assets/menu.png',
+            height: 50.0,
+            width: 450.0,
           ),
         ),
         centerTitle: true,
@@ -81,7 +80,7 @@ class _MenuState extends State<Menu> {
                       width: double.infinity, // Card takes full width of the ListView
                       margin: EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
                       child: Card(
-                        color: Colors.yellow,
+                        color: Colors.black,
                         child: ListTile(
                           title: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -90,7 +89,7 @@ class _MenuState extends State<Menu> {
                               Text(
                                 products[index].productName,
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontSize: 16,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -98,7 +97,7 @@ class _MenuState extends State<Menu> {
                               Text(
                                 'Price: ${products[index].price.toString()}',
                                 style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.white,
                                   fontSize: 14,
                                 ),
                               ),

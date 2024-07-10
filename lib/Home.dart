@@ -14,17 +14,17 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.cyan,
+      backgroundColor: Colors.brown[600],
       appBar: AppBar(
         title: Text(
           'User Profile',
           style: TextStyle(
-              color: Colors.black,
+              color: Colors.white,
               fontWeight: FontWeight.bold,
           letterSpacing: 2.0,
           ),
         ),
-        backgroundColor: Colors.yellow,
+        backgroundColor: Colors.black,
         centerTitle: true,
       ),
       body: Padding(
@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
               children: <Widget>[
                 Center(
                   child: CircleAvatar(
-                    backgroundImage: AssetImage('assets/download.png'),
+                    backgroundImage: AssetImage('assets/jill.jpg'),
                     backgroundColor: Colors.pinkAccent,
                     radius: 70.0,
                   ),
@@ -133,12 +133,12 @@ class _HomeState extends State<Home> {
                     },
                     child: Text('Add Year',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                     ),
                   style: ButtonStyle(
-                    backgroundColor: WidgetStateProperty.all(Colors.yellow),
+                    backgroundColor: WidgetStateProperty.all(Colors.black),
                   ),
                 ),
               ],

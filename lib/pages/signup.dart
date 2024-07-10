@@ -39,26 +39,44 @@ class _SignupState extends State<Signup> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.cyan,
+      backgroundColor: Colors.brown[600],
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.fromLTRB(10.0, 30.0, 10.0, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Center(
-                child: Text(
-                  'Create your account',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    letterSpacing: 2.0,
-                    fontSize: 26.0,
-                    color: Colors.black,
-                    height: 3.0,
-                  ),
+          Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'Create you account to',
+                style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  letterSpacing: 2.0,
+                  fontSize: 26.0,
+                  color: Colors.black,
+                  height: 1.2, // Adjust the height as needed
                 ),
+                textAlign: TextAlign.center,
               ),
-              SizedBox(height: 10.0),
+              Image.asset(
+                'assets/appbar.png',
+                width: 500, // Adjust width as needed
+                height: 100, // Adjust height as needed
+                fit: BoxFit.contain, // Adjust the fit as needed
+              ),
+            ],
+          ),
+        ),
+              Divider(height: 30.0,
+                color: Colors.black,
+                thickness: 3.0,
+              ),
+
+          SizedBox(height: 20.0),
               Form(
                 key: formKey,
                 child: Column(
@@ -68,6 +86,7 @@ class _SignupState extends State<Signup> {
                       style: TextStyle(color: Colors.white),
                       maxLength: 60,
                       decoration: InputDecoration(
+                        errorStyle: TextStyle(color: Colors.white),
                         labelText: 'Name',
                         labelStyle:  TextStyle(color: Colors.white),
                         border: OutlineInputBorder(
@@ -97,6 +116,7 @@ class _SignupState extends State<Signup> {
                       keyboardType: TextInputType.emailAddress,
                       maxLength: 60,
                       decoration: InputDecoration(
+                        errorStyle: TextStyle(color: Colors.white),
                         labelText: 'Email',
                         labelStyle: TextStyle(color: Colors.white),
                         border: OutlineInputBorder(
@@ -127,6 +147,7 @@ class _SignupState extends State<Signup> {
                       obscureText: _obscure,
                       maxLength: 20,
                       decoration: InputDecoration(
+                        errorStyle: TextStyle(color: Colors.white),
                         labelText: 'Password',
                         labelStyle: TextStyle(color: Colors.white),
                         border: OutlineInputBorder(
@@ -158,59 +179,19 @@ class _SignupState extends State<Signup> {
                         if (value.length > 20) {
                           return 'Password must be 20 characters long only';
                         }
-                        final passwordRegExp = RegExp(
-                            r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$&*]).{8,}$');
-                        if (!passwordRegExp.hasMatch(value)) {
-                          return 'Password must contain at least one uppercase letter, '
-                              'one lowercase letter, one digit, and one special character.';
-                        }
+                        // final passwordRegExp = RegExp(
+                        //     r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#$&*]).{8,}$');
+                        // if (!passwordRegExp.hasMatch(value)) {
+                        //   return 'Password must contain at least one uppercase letter, '
+                        //       'one lowercase letter, one digit, and one special character.';
+                        // }
                         return null;
                       },
                       onSaved: (value) {
                         password = value!;
                       },
                     ),
-                    SizedBox(height: 10.0),
-                    TextFormField(
-                      style: TextStyle(color: Colors.white),
-                      enableInteractiveSelection: false,
-                      obscureText: _obscure,
-                      maxLength: 20,
-                      decoration: InputDecoration(
-                        labelText: 'Confirm Password',
-                        labelStyle: TextStyle(color: Colors.white),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0)),
-                        prefixIcon: Icon(Icons.lock, color: Colors.white,),
-                        suffixIcon: IconButton(
-                          icon: Icon(_obscureIcon, color: Colors.white,),
-                          onPressed: (){
-                            setState(() {
-                              _obscure = !_obscure;
-                              if(_obscure){
-                                _obscureIcon = Icons.visibility_off;
-                              }else{
-                                _obscureIcon = Icons.visibility;
-                              }
-                            });
-                          },
-                        ),
-                        filled: true,
-                        fillColor: Colors.black,
-                      ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please confirm your password';
-                        }
-                        if (value != password) {
-                          return 'Passwords do not match';
-                        }
-                        return null;
-                      },
-                      onSaved: (value) {
-                        confirmPassword = value!;
-                      },
-                    ),
+
                     SizedBox(height: 10.0),
                     ElevatedButton(
                       onPressed: () {
@@ -229,8 +210,8 @@ class _SignupState extends State<Signup> {
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.amber,
-                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.yellow,
+                        foregroundColor: Colors.black,
                       ),
                     ),
                     Row(
