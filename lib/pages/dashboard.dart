@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:banner_carousel/banner_carousel.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -9,64 +9,116 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  List<BannerModel> listBanners = [
-    BannerModel(imagePath: "assets/topsilog.jpg", id: "1"),
-    BannerModel(imagePath: "assets/tocilog.jpg", id: "2"),
-    BannerModel(imagePath: "assets/hotsilog.jpg", id: "3"),
-    BannerModel(imagePath: "assets/siosilog.jpg", id: "4"),
-    BannerModel(imagePath: "assets/longsilog.jpg", id: "5"),
-    BannerModel(imagePath: "assets/sisilog.jpg", id: "6"),
-    BannerModel(imagePath: "assets/chicsilog.jpg", id: "7"),
-    BannerModel(imagePath: "assets/bangsilog.jpg", id: "8"),
-    BannerModel(imagePath: "assets/hamsilog.jpg", id: "9"),
+  List listBanners = [
+    "assets/topsilog.jpg",
+    "assets/tocilog.jpg",
+    "assets/hotsilog.jpg",
+    "assets/siosilog.jpg",
+    "assets/longsilog.jpg",
+    "assets/sisilog.jpg",
+    "assets/chicsilog.jpg",
+    "assets/bangsilog.jpg",
+    "assets/hamsilog.jpg",
   ];
-  @override
 
+  int _currentSlide = 0;
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown[600],
-      appBar: AppBar(
-        title: Center(
-          child: Image.asset('assets/appbar.png',
-          height: 60.0,
-            width: 500.0,
-          ),
-        ),
-        backgroundColor: Colors.black,
-        centerTitle: false,
-        automaticallyImplyLeading: false,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: <Widget>[
-            // Image.asset(
-            //   'assets/sisleng.jpg',  // Replace with your actual image path
-            //   width: 500,
-            //   height: 250,
-            //   fit: BoxFit.contain,
-            // ),
-
-            SizedBox(height: 25,),
-            BannerCarousel(
-              banners: listBanners,
-              customizedIndicators: IndicatorModel.animation(width: 25, height: 10, spaceBetween: 5, widthAnimation: 60),
-              height:650,
-              activeColor: Colors.amberAccent,
-              disableColor: Colors.white,
-              animation: true,
-              borderRadius: 10,
-              width:600,
-              indicatorBottom: false,
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/rasta.jpg'),
+                fit: BoxFit.cover,
+              ),
             ),
-
-          ],
-        ),
+          ),
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: AppBar(
+              title: Center(
+                child: Image.asset(
+                  'assets/appbar.png',
+                  height: 80.0,
+                  width: 600.0,
+                ),
+              ),
+              backgroundColor: Colors.black,
+              centerTitle: false,
+              automaticallyImplyLeading: false,
+            ),
+          ),
+          Positioned.fill(
+            top: MediaQuery.of(context).padding.top + kToolbarHeight,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  TextField(
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.white,
+                      hintText: 'Search...',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
+                        borderSide: BorderSide.none,
+                      ),
+                      prefixIcon: Icon(Icons.search, color: Colors.black),
+                      contentPadding: EdgeInsets.symmetric(horizontal: 20.0),
+                    ),
+                  ),
+                  Expanded(
+                    child: CarouselSlider(
+                      items: listBanners.map((banner) {
+                        return Builder(
+                          builder: (BuildContext context) {
+                            return Container(
+                              width: MediaQuery.of(context).size.width,
+                              margin: EdgeInsets.symmetric(horizontal: 5.0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                image: DecorationImage(
+                                  image: AssetImage(banner),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            );
+                          },
+                        );
+                      }).toList(),
+                      options: CarouselOptions(
+                        height: 600,
+                        initialPage: 0,
+                        viewportFraction: 1.0,
+                        enableInfiniteScroll: true,
+                        autoPlay: true,
+                        autoPlayInterval: Duration(seconds: 2),
+                        autoPlayAnimationDuration: Duration(milliseconds: 800),
+                        autoPlayCurve: Curves.fastOutSlowIn,
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            _currentSlide = index;
+                          });
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         elevation: 3.0,
-        onTap: (int val){
-          switch(val){
+        onTap: (int val) {
+          switch (val) {
             case 0:
               Navigator.pushNamed(context, '/home');
               break;
@@ -77,15 +129,14 @@ class _DashboardState extends State<Dashboard> {
         },
         currentIndex: 0,
         backgroundColor: Colors.white,
-        items: const[
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.person, color: Colors.black),
             label: 'Profile',
           ),
-
           BottomNavigationBarItem(
-              icon: Icon(Icons.fastfood_sharp, color: Colors.black,),
-              label: 'Menu'
+            icon: Icon(Icons.fastfood_sharp, color: Colors.black),
+            label: 'Menu',
           ),
         ],
       ),
