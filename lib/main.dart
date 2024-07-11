@@ -1,27 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:untitled/Home.dart';
+import 'package:untitled/pages/dashboard.dart';
+import 'package:untitled/pages/login.dart';
+import 'package:untitled/pages/menu.dart';
+import 'package:untitled/pages/signup.dart';
 
-void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home:Scaffold(
-      backgroundColor: Colors.lightBlue[200],
-      appBar: AppBar(
-        title: Center(
-          child: Text('iWater App'),
-        ),
-        backgroundColor: Colors.lightBlueAccent,
-      ),
-      body: Center(
-        child: Image.network('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfGtVygU7ada-OVDswIKTVxppKinp0N_tpTQ&s'),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Colors.lightBlueAccent,
-        child: Icon(
-          Icons.add,
-          color: Colors.black,
-        ),
-        ),
-      ),
-    ),);
-}
+void main() => runApp(MaterialApp(
+  initialRoute: '/login',
+ routes: {
+   '/' : (context) => Dashboard(),
+   '/menu' : (context) => Menu(),
+   '/home' : (context) => Home(),
+   '/signup' : (context) => Signup(),
+   '/login' : (context) => Login(),
+ },
+));
